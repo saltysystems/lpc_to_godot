@@ -5,6 +5,8 @@ https://github.com/sanderfrenken/Universal-LPC-Spritesheet-Character-Generator
 and import them into your Godot games as SpriteFrames, ready to be loaded into
 AnimatedSprite, AnimatedSprite3D, etc.
 
+![](https://i.imgur.com/AiXlnnS.png)
+
 ## Usage
 Copy the "addons" directory from this repository to your Godot project.
 
