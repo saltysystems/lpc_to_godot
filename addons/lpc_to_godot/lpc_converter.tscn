@@ -1,0 +1,288 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/lpc_to_godot/lpc_ui.gd" type="Script" id=1]
+
+[node name="LPC_Converter" type="VBoxContainer"]
+margin_right = 200.0
+margin_bottom = 400.0
+hint_tooltip = "Provide the path to a texture file containing an LPC spritesheet"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpriteSheetLabel" type="Label" parent="."]
+margin_right = 200.0
+margin_bottom = 14.0
+text = "LPC Spritesheet Path:"
+
+[node name="SpritePath" type="HBoxContainer" parent="."]
+margin_top = 18.0
+margin_right = 200.0
+margin_bottom = 42.0
+
+[node name="Value" type="LineEdit" parent="SpritePath"]
+margin_right = 172.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 144, 0 )
+size_flags_horizontal = 3
+clear_button_enabled = true
+placeholder_text = "res://LPC_SpriteSheet.png"
+
+[node name="FilePath" type="Button" parent="SpritePath"]
+margin_left = 176.0
+margin_right = 200.0
+margin_bottom = 24.0
+text = "..."
+
+[node name="OutputLabel" type="Label" parent="."]
+margin_top = 46.0
+margin_right = 200.0
+margin_bottom = 60.0
+text = "Output File Path:"
+
+[node name="OutputPath" type="HBoxContainer" parent="."]
+margin_top = 64.0
+margin_right = 200.0
+margin_bottom = 88.0
+
+[node name="Value" type="LineEdit" parent="OutputPath"]
+margin_right = 172.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 144, 0 )
+size_flags_horizontal = 3
+clear_button_enabled = true
+placeholder_text = "res://SpriteFrames.tres"
+
+[node name="OutputPath" type="Button" parent="OutputPath"]
+margin_left = 176.0
+margin_right = 200.0
+margin_bottom = 24.0
+text = "..."
+
+[node name="OversizeWeapon" type="HBoxContainer" parent="."]
+visible = false
+margin_top = 92.0
+margin_right = 238.0
+margin_bottom = 116.0
+
+[node name="Label" type="Label" parent="OversizeWeapon"]
+margin_top = 5.0
+margin_right = 210.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+text = "Has oversized weapon?"
+
+[node name="Value" type="CheckBox" parent="OversizeWeapon"]
+margin_left = 214.0
+margin_right = 238.0
+margin_bottom = 24.0
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Framerate" type="HBoxContainer" parent="."]
+margin_top = 92.0
+margin_right = 200.0
+margin_bottom = 116.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Framerate"]
+margin_top = 5.0
+margin_right = 122.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+text = "Playback FPS"
+
+[node name="Value" type="SpinBox" parent="Framerate"]
+margin_left = 126.0
+margin_right = 200.0
+margin_bottom = 24.0
+min_value = 1.0
+max_value = 30.0
+value = 10.0
+align = 2
+
+[node name="Label3" type="Label" parent="."]
+margin_top = 120.0
+margin_right = 200.0
+margin_bottom = 134.0
+text = "Advanced Options"
+align = 1
+
+[node name="CastFrames" type="HBoxContainer" parent="."]
+margin_top = 138.0
+margin_right = 200.0
+margin_bottom = 162.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="CastFrames"]
+margin_top = 5.0
+margin_right = 122.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+text = "Cast Frames"
+
+[node name="Value" type="SpinBox" parent="CastFrames"]
+margin_left = 126.0
+margin_right = 200.0
+margin_bottom = 24.0
+max_value = 20.0
+value = 7.0
+align = 2
+
+[node name="ThrustFrames" type="HBoxContainer" parent="."]
+margin_top = 166.0
+margin_right = 200.0
+margin_bottom = 190.0
+
+[node name="Label" type="Label" parent="ThrustFrames"]
+margin_top = 5.0
+margin_right = 122.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+text = "Thrust Frames"
+
+[node name="Value" type="SpinBox" parent="ThrustFrames"]
+margin_left = 126.0
+margin_right = 200.0
+margin_bottom = 24.0
+max_value = 20.0
+value = 8.0
+align = 2
+
+[node name="WalkFrames" type="HBoxContainer" parent="."]
+margin_top = 194.0
+margin_right = 200.0
+margin_bottom = 218.0
+
+[node name="Label" type="Label" parent="WalkFrames"]
+margin_top = 5.0
+margin_right = 122.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+text = "Walk Frames"
+
+[node name="Value" type="SpinBox" parent="WalkFrames"]
+margin_left = 126.0
+margin_right = 200.0
+margin_bottom = 24.0
+max_value = 20.0
+value = 9.0
+align = 2
+
+[node name="SlashFrames" type="HBoxContainer" parent="."]
+margin_top = 222.0
+margin_right = 200.0
+margin_bottom = 246.0
+
+[node name="Label" type="Label" parent="SlashFrames"]
+margin_top = 5.0
+margin_right = 122.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+text = "Slash Frames"
+
+[node name="Value" type="SpinBox" parent="SlashFrames"]
+margin_left = 126.0
+margin_right = 200.0
+margin_bottom = 24.0
+max_value = 20.0
+value = 6.0
+align = 2
+
+[node name="ShootFrames" type="HBoxContainer" parent="."]
+margin_top = 250.0
+margin_right = 200.0
+margin_bottom = 274.0
+
+[node name="Label" type="Label" parent="ShootFrames"]
+margin_top = 5.0
+margin_right = 122.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+text = "Shoot Frames"
+
+[node name="Value" type="SpinBox" parent="ShootFrames"]
+margin_left = 126.0
+margin_right = 200.0
+margin_bottom = 24.0
+max_value = 20.0
+value = 13.0
+align = 2
+
+[node name="HurtFrames" type="HBoxContainer" parent="."]
+margin_top = 278.0
+margin_right = 200.0
+margin_bottom = 302.0
+
+[node name="Label" type="Label" parent="HurtFrames"]
+margin_top = 5.0
+margin_right = 122.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+text = "Hurt Frames"
+
+[node name="Value" type="SpinBox" parent="HurtFrames"]
+margin_left = 126.0
+margin_right = 200.0
+margin_bottom = 24.0
+max_value = 20.0
+value = 4.0
+align = 2
+
+[node name="OversizeFrames" type="HBoxContainer" parent="."]
+visible = false
+margin_top = 306.0
+margin_right = 238.0
+margin_bottom = 330.0
+
+[node name="Label" type="Label" parent="OversizeFrames"]
+margin_top = 5.0
+margin_right = 160.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+text = "Oversized Attack Frames"
+
+[node name="Value" type="SpinBox" parent="OversizeFrames"]
+margin_left = 164.0
+margin_right = 238.0
+margin_bottom = 24.0
+max_value = 20.0
+align = 2
+
+[node name="GenerateFrames" type="Button" parent="."]
+margin_top = 306.0
+margin_right = 200.0
+margin_bottom = 326.0
+size_flags_horizontal = 3
+text = "Generate SpriteFrames"
+
+[node name="FileDialog" type="FileDialog" parent="."]
+margin_top = 340.0
+margin_right = 315.0
+margin_bottom = 540.0
+rect_min_size = Vector2( 200, 200 )
+window_title = "Open a File"
+resizable = true
+mode = 0
+
+[node name="OutputDialog" type="FileDialog" parent="."]
+margin_top = 544.0
+margin_right = 315.0
+margin_bottom = 744.0
+rect_min_size = Vector2( 200, 200 )
+window_title = "Write SpriteFrames file"
+resizable = true
+
+[node name="WarnDialog" type="AcceptDialog" parent="."]
+margin_right = 83.0
+margin_bottom = 58.0
+
+[connection signal="pressed" from="SpritePath/FilePath" to="." method="_on_FilePath_pressed"]
+[connection signal="pressed" from="OutputPath/OutputPath" to="." method="_on_OutputDirPath_pressed"]
+[connection signal="pressed" from="GenerateFrames" to="." method="_on_GenerateFrames_pressed"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_FileDialog_file_selected"]
+[connection signal="dir_selected" from="OutputDialog" to="." method="_on_OutputDialog_dir_selected"]
+[connection signal="file_selected" from="OutputDialog" to="." method="_on_OutputDialog_file_selected"]
