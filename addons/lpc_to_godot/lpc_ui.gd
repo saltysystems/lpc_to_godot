@@ -194,7 +194,7 @@ func make_frames(name, frames, row):
 	F.set_animation_speed(name, framerate)
 	for col in range(frames):
 		if "walk" in name && col == 0:
-				continue
+			continue
 		print("Making frames for " + str(name))
 		var A = AtlasTexture.new()
 		A.atlas = spritesheet
