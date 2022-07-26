@@ -152,10 +152,30 @@ max_value = 20.0
 value = 8.0
 align = 2
 
-[node name="WalkFrames" type="HBoxContainer" parent="."]
+[node name="IdleFrames" type="HBoxContainer" parent="."]
 margin_top = 194.0
 margin_right = 200.0
 margin_bottom = 218.0
+
+[node name="Label" type="Label" parent="IdleFrames"]
+margin_top = 5.0
+margin_right = 122.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+text = "Idle Frames"
+
+[node name="Value" type="SpinBox" parent="IdleFrames"]
+margin_left = 126.0
+margin_right = 200.0
+margin_bottom = 24.0
+max_value = 20.0
+value = 1.0
+align = 2
+
+[node name="WalkFrames" type="HBoxContainer" parent="."]
+margin_top = 222.0
+margin_right = 200.0
+margin_bottom = 246.0
 
 [node name="Label" type="Label" parent="WalkFrames"]
 margin_top = 5.0
@@ -169,13 +189,13 @@ margin_left = 126.0
 margin_right = 200.0
 margin_bottom = 24.0
 max_value = 20.0
-value = 9.0
+value = 8.0
 align = 2
 
 [node name="SlashFrames" type="HBoxContainer" parent="."]
-margin_top = 222.0
+margin_top = 250.0
 margin_right = 200.0
-margin_bottom = 246.0
+margin_bottom = 274.0
 
 [node name="Label" type="Label" parent="SlashFrames"]
 margin_top = 5.0
@@ -193,9 +213,9 @@ value = 6.0
 align = 2
 
 [node name="ShootFrames" type="HBoxContainer" parent="."]
-margin_top = 250.0
+margin_top = 278.0
 margin_right = 200.0
-margin_bottom = 274.0
+margin_bottom = 302.0
 
 [node name="Label" type="Label" parent="ShootFrames"]
 margin_top = 5.0
@@ -213,9 +233,9 @@ value = 13.0
 align = 2
 
 [node name="HurtFrames" type="HBoxContainer" parent="."]
-margin_top = 278.0
+margin_top = 306.0
 margin_right = 200.0
-margin_bottom = 302.0
+margin_bottom = 330.0
 
 [node name="Label" type="Label" parent="HurtFrames"]
 margin_top = 5.0
@@ -253,9 +273,9 @@ max_value = 20.0
 align = 2
 
 [node name="GenerateFrames" type="Button" parent="."]
-margin_top = 306.0
+margin_top = 334.0
 margin_right = 200.0
-margin_bottom = 326.0
+margin_bottom = 354.0
 size_flags_horizontal = 3
 text = "Generate SpriteFrames"
 

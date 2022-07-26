@@ -32,7 +32,8 @@ var oversized_weapon = false
 var framerate = 10
 var cast_frames = 7
 var thrust_frames = 8
-var walk_frames = 9
+var idle_frames = 1
+var walk_frames = 8
 var slash_frames = 6
 var shoot_frames = 13
 var hurt_frames = 6
@@ -86,6 +87,7 @@ func _on_GenerateFrames_pressed():
 	cast_frames = $CastFrames/Value.value
 	thrust_frames = $ThrustFrames/Value.value
 	walk_frames = $WalkFrames/Value.value
+	idle_frames = $IdleFrames/Value.value
 	slash_frames = $SlashFrames/Value.value
 	shoot_frames = $ShootFrames/Value.value
 	oversize_frames = $OversizeFrames/Value.value
@@ -138,6 +140,7 @@ func new_sprite():
 	# Process each of our frame types
 	add_animation("cast")
 	add_animation("thrust")
+	add_animation("idle")
 	add_animation("walk")
 	add_animation("slash")
 	add_animation("shoot")
@@ -154,37 +157,45 @@ func new_sprite():
 func add_animation(type: String):
 	match type:
 		"cast":
-			make_frames("cast_up", animation.CAST_UP)
-			make_frames("cast_left", animation.CAST_LEFT)
-			make_frames("cast_down", animation.CAST_DOWN)
-			make_frames("cast_right", animation.CAST_RIGHT)
+			make_frames("cast_up", cast_frames, animation.CAST_UP)
+			make_frames("cast_left", cast_frames, animation.CAST_LEFT)
+			make_frames("cast_down", cast_frames, animation.CAST_DOWN)
+			make_frames("cast_right", cast_frames, animation.CAST_RIGHT)
 		"thrust":
-			make_frames("thrust_up", animation.THRUST_UP)
-			make_frames("thrust_left", animation.THRUST_LEFT)
-			make_frames("thrust_down", animation.THRUST_DOWN)
-			make_frames("thrust_right", animation.THRUST_RIGHT)
+			make_frames("thrust_up", thrust_frames, animation.THRUST_UP)
+			make_frames("thrust_left", thrust_frames, animation.THRUST_LEFT)
+			make_frames("thrust_down", thrust_frames, animation.THRUST_DOWN)
+			make_frames("thrust_right", thrust_frames, animation.THRUST_RIGHT)
+		"idle":
+			make_frames("idle_up", idle_frames, animation.WALK_UP)
+			make_frames("idle_left", idle_frames, animation.WALK_LEFT)
+			make_frames("idle_down", idle_frames, animation.WALK_DOWN)
+			make_frames("idle_right", idle_frames, animation.WALK_RIGHT)
 		"walk":
-			make_frames("walk_up", animation.WALK_UP)
-			make_frames("walk_left", animation.WALK_LEFT)
-			make_frames("walk_down", animation.WALK_DOWN)
-			make_frames("walk_right", animation.WALK_RIGHT)
+			make_frames("walk_up", walk_frames, animation.WALK_UP)
+			make_frames("walk_left", walk_frames, animation.WALK_LEFT)
+			make_frames("walk_down", walk_frames, animation.WALK_DOWN)
+			make_frames("walk_right", walk_frames, animation.WALK_RIGHT)
 		"slash":
-			make_frames("slash_up", animation.SLASH_UP)
-			make_frames("slash_left", animation.SLASH_LEFT)
-			make_frames("slash_down", animation.SLASH_DOWN)
-			make_frames("slash_right", animation.SLASH_RIGHT)
+			make_frames("slash_up", slash_frames, animation.SLASH_UP)
+			make_frames("slash_left", slash_frames, animation.SLASH_LEFT)
+			make_frames("slash_down", slash_frames, animation.SLASH_DOWN)
+			make_frames("slash_right", slash_frames, animation.SLASH_RIGHT)
 		"shoot":
-			make_frames("shoot_up", animation.SHOOT_UP)
-			make_frames("shoot_left", animation.SHOOT_LEFT)
-			make_frames("shoot_down", animation.SHOOT_DOWN)
-			make_frames("shoot_right", animation.SHOOT_RIGHT)
+			make_frames("shoot_up", shoot_frames, animation.SHOOT_UP)
+			make_frames("shoot_left", shoot_frames, animation.SHOOT_LEFT)
+			make_frames("shoot_down", shoot_frames, animation.SHOOT_DOWN)
+			make_frames("shoot_right", shoot_frames, animation.SHOOT_RIGHT)
 		"hurt":
-			make_frames("hurt_down", animation.HURT_DOWN)
+			make_frames("hurt_down", hurt_frames, animation.HURT_DOWN)
 
-func make_frames(name, row):
+func make_frames(name, frames, row):
 	F.add_animation(name)
 	F.set_animation_speed(name, framerate)
-	for col in range(0,cast_frames-1):
+	for col in range(frames):
+		if "walk" in name && col == 0:
+				continue
+		print("Making frames for " + str(name))
 		var A = AtlasTexture.new()
 		A.atlas = spritesheet
 		A.region = Rect2(64*col,64*row,64,64)
